@@ -1,0 +1,78 @@
+# ⚡ DÉPLOIEMENT RAPIDE - 3 ÉTAPES
+
+## 🎯 ÉTAPE 1 : CRÉER LA BASE DE DONNÉES (2 min)
+
+1. **Connectez-vous à votre hébergement** (cPanel, Plesk, etc.)
+2. **Allez dans "MySQL Databases"**
+3. **Créez** :
+   - Base de données : `quiz_app`
+   - Utilisateur MySQL : (notez le nom)
+   - Mot de passe : (notez le mot de passe)
+4. **Ouvrez phpMyAdmin**
+5. **Sélectionnez** votre base `quiz_app`
+6. **Cliquez "Importer"**
+7. **Uploadez** le fichier `mysql-schema.sql` (à la racine du projet)
+
+---
+
+## 🎯 ÉTAPE 2 : UPLOADER L'API (1 min)
+
+### Via FTP/SFTP :
+1. Connectez-vous à votre serveur
+2. Allez dans `public_html/` ou `www/`
+3. **Uploadez TOUT le dossier `api/`**
+
+### Via cPanel File Manager :
+1. Ouvrez File Manager
+2. Allez dans `public_html/`
+3. **Glissez-déposez le dossier `api/`**
+
+---
+
+## 🎯 ÉTAPE 3 : CONFIGURER (1 min)
+
+1. **Ouvrez** `api/config.php` sur votre serveur (via File Manager ou FTP)
+2. **Modifiez** ces 4 lignes :
+
+```php
+define('DB_HOST', 'localhost');
+define('DB_USER', 'VOTRE_UTILISATEUR_MYSQL');  // ← Changez ça
+define('DB_PASS', 'VOTRE_MOT_DE_PASSE_MYSQL'); // ← Changez ça
+define('DB_NAME', 'quiz_app');
+```
+
+3. **Sauvegardez**
+
+---
+
+## ✅ TESTER
+
+Ouvrez dans votre navigateur :
+```
+https://votre-domaine.com/api/test-connection.php
+```
+
+**Vous devriez voir** : ✅ Connexion réussie !
+
+---
+
+## 🚀 C'EST TOUT !
+
+Votre API est déployée. L'app React détectera automatiquement l'URL de l'API.
+
+**Si votre API est sur un serveur différent** :
+- Ajoutez dans Vercel/Netlify : `VITE_API_URL=https://votre-domaine-api.com/api`
+- Redéployez l'app
+
+---
+
+## 🆘 PROBLÈME ?
+
+1. **Erreur de connexion** → Vérifiez `config.php`
+2. **404 Not Found** → Vérifiez que `api/` est dans `public_html/api/`
+3. **Tables manquantes** → Importez `mysql-schema.sql` dans phpMyAdmin
+
+---
+
+**📖 Guide complet :** Voir `DEPLOY_API_NOW.md`
+

@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbars but keep functionality */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.7);
+}
+
+/* Prevent body scroll when setup is open */
+body.setup-open {
+  overflow: hidden;
+}
+
+@layer base {
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  body {
+    @apply text-gray-900 dark:text-gray-100;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Background will be set by ColorPaletteProvider */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .medical-card {
+    @apply bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-sm border border-gray-200 dark:border-gray-700;
+    @apply hover:shadow-md transition-all duration-300;
+  }
+  
+  .medical-card:hover {
+    border-color: #5eead4;
+  }
+  
+  .dark .medical-card:hover {
+    border-color: #0d9488;
+  }
+
+  .medical-button {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium;
+    @apply text-white shadow-sm hover:shadow-md;
+    @apply transition-all duration-200 transform hover:scale-105 active:scale-95;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply dark:focus:ring-offset-gray-800;
+    background-color: #0d9488;
+  }
+  
+  .medical-button:hover {
+    background-color: #0f766e;
+  }
+  
+  .dark .medical-button {
+    background-color: #14b8a6;
+  }
+  
+  .dark .medical-button:hover {
+    background-color: #0d9488;
+  }
+  
+  .medical-button:focus {
+    --tw-ring-color: #14b8a6;
+  }
+
+  .medical-button-secondary {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium;
+    @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600;
+    @apply text-gray-700 dark:text-gray-200;
+    @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+    @apply transition-all duration-200 transform hover:scale-105 active:scale-95;
+    @apply shadow-sm hover:shadow-md;
+  }
+
+  .medical-input {
+    @apply block w-full rounded-lg border border-gray-300 dark:border-gray-600;
+    @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+    @apply px-3 py-2 shadow-sm;
+    @apply focus:outline-none focus:ring-2 transition-all duration-200;
+    @apply placeholder-gray-400 dark:placeholder-gray-300;
+  }
+  
+  .medical-input::placeholder {
+    @apply text-gray-400 dark:text-gray-300;
+  }
+  
+  .medical-input:focus {
+    --tw-ring-color: #14b8a6;
+    border-color: #14b8a6;
+  }
+
+  .medical-label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+  }
+
+  .page-fade {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .text-medical {
+    color: #0d9488;
+  }
+  
+  .dark .text-medical {
+    color: #2dd4bf;
+  }
+
+  .bg-medical-gradient {
+    background: linear-gradient(to bottom right, #14b8a6, #0f766e);
+  }
+}

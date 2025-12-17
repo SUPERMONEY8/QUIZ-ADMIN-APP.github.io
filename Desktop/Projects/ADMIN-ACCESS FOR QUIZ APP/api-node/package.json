@@ -1,0 +1,21 @@
+{
+  "name": "quiz-app-api",
+  "version": "1.0.0",
+  "description": "Node.js API for Quiz App with Neon PostgreSQL",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
+
+

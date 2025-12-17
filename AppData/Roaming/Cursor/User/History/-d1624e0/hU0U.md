@@ -1,0 +1,49 @@
+# Employee Shift Assignment - Office Add-in
+
+## Setup Instructions
+
+### 1. No Installation Required! ✅
+- Uses PowerShell (built into Windows)
+- No Python, npm, or other software needed
+- Works on Windows 7 and later
+
+### 2. Start the Local Web Server
+
+**Option A: Double-click the batch file (Easiest)**
+- Simply double-click `start_server.bat` in this folder
+- The server will start automatically
+
+**Option B: Using Command Prompt**
+- Open Command Prompt in this directory
+- Run: `python server.py`
+- Or: `python3 server.py` (if Python 3 is installed separately)
+
+The server will start at `http://localhost:3000`
+
+**Keep the server running** - Do not close the command prompt window while using the add-in!
+
+### 3. Sideload the Add-in into Excel
+
+1. Open Excel
+2. Go to **Insert** → **Add-ins** → **My Add-ins**
+3. Click **Upload My Add-in**
+4. Browse to: `C:\Users\LENOVO\Desktop\خفارة\manifest.xml`
+5. Click **Upload**
+
+The add-in should now appear and be ready to use!
+
+## Files Structure
+
+- `manifest.xml` - Add-in metadata and configuration
+- `taskpane.html` - User interface
+- `taskpane.js` - Main application logic
+- `taskpane.css` - Styling
+- `config.js` - Sheet configuration
+- `server.py` - Python web server (for development)
+- `start_server.bat` - Windows batch file to start server easily
+
+## Troubleshooting
+
+- **Add-in won't load**: Make sure the server is running at `http://localhost:3000`
+- **Path issues**: The manifest.xml uses `http://localhost:3000` - make sure the server is running
+- **File not found errors**: Ensure all files are in the same directory as `server.js`
