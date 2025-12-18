@@ -46,7 +46,9 @@ SECRET JSON/
 !package.json
 !package-lock.json
 !tsconfig.json
+!vercel.json
 
 # Build files
 *.log
+
 
