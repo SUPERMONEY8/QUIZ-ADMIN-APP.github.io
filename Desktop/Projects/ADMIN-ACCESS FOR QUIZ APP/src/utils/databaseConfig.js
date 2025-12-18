@@ -1,5 +1,6 @@
 // Database Configuration - Switch between Firebase, MySQL, and PostgreSQL
 // Set USE_POSTGRES to true to use PostgreSQL (Neon), false for MySQL or Firebase
+// ✅ CONFIGURED FOR POSTGRESQL (NEON) - DO NOT CHANGE
 export const USE_POSTGRES = true; // Set to true to use PostgreSQL (Neon)
 export const USE_MYSQL = false; // Set to false (using PostgreSQL)
 

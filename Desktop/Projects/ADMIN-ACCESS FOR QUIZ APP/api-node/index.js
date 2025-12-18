@@ -40,6 +40,7 @@ app.get('/api/test-connection', async (req, res) => {
 });
 
 // API Routes
+// Note: Vercel routes /api/* to this file, so we use /api prefix here
 app.use('/api/users', usersRouter);
 app.use('/api/quizzes', quizzesRouter);
 app.use('/api/questions', questionsRouter);
